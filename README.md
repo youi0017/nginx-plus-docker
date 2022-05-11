@@ -19,10 +19,11 @@ podman run --name web8081 -p 8080:80 nginx-server start &
 
 
 2.2 运行服务
+```
 podman run -d --name web81 -p 81:80 -v /var/www/web81/www:/www -v /var/www/web81/config:/etc/nginx/http.d -v /var/www/web81/log:/var/log/nginx  nginx-server start &
+```
 
-
-### 关于宿主机目录结构
+### 补充：关于宿主机目录结构
 注意: nginx-server的每个web服务都应具有如下目录结构：
 ```
 /var/www/webXXX						虚拟主机根目录
