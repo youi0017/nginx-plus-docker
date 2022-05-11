@@ -11,12 +11,15 @@
 2.1 测试运行：
 
 * 版本号
+```
 podman run nginx-server -v
+```
 
 * 运行
+```
 podman run --name web8081 -p 8080:80 nginx-server start &
+```
 注意：最后必需要加 `&`,否则运行将被阻断
-
 
 2.2 运行服务
 ```
@@ -24,7 +27,9 @@ podman run -d --name web81 -p 81:80 -v /var/www/web81/www:/www -v /var/www/web81
 ```
 
 ### 补充：关于宿主机目录结构
+
 注意: nginx-server的每个web服务都应具有如下目录结构：
+
 ```
 /var/www/webXXX						虚拟主机根目录
 	|-www										网页文件根目录
