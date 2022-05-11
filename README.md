@@ -31,15 +31,13 @@ podman run -d --name web81 -p 81:80 -v /var/www/web81/www:/www -v /var/www/web81
 注意: nginx-server的每个web服务都应具有如下目录结构：
 
 ```
-/var/www/webXXX						虚拟主机根目录
-	|-www										网页文件根目录
-		|- * 									web相关文件
-	|-config								虚拟主机配置目录(至少一个配置文件，建议一个)
-		|-{anyName}.conf			nginx中的server配置
-	|-log										日志目录（默认为空即可）
-		|-access.log 					(生动生成)
-		|-error.log 					(生动生成)
-
+/var/www/webXXX 	虚拟主机根目录
+  |-www                   网页文件根目录
+    |- *                  web相关文件
+  |-config                虚拟主机配置目录(至少一个配置文件，建议一个)
+    |-{anyName}.conf      nginx中的server配置
+  |-log                   日志目录（默认为空即可）
+    |-access.log          (生动生成)
+    |-error.log           (生动生成)
 ```
-
 
