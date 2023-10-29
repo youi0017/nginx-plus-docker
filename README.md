@@ -1,34 +1,31 @@
-# nginx-server for docker
+# nginx-plus for docker
 
 
 ### 一、 说明
 
-基于： alpine + nginx
+基于： docker:nginx 
+
+docker-image 构建：
+
+> podman build -t nginx-plus ./
 
 
 ### 二、 使用说明
 
 2.1 测试运行：
 
-* 版本号
 ```
-podman run nginx-server -v
+podman run --name nginx-cs -p 8000:80 nginx-plus
 ```
-
-* 运行
-```
-podman run --name web8081 -p 8080:80 nginx-server start &
-```
-注意：最后必需要加 `&`,否则运行将被阻断
 
 2.2 运行服务
 ```
-podman run -d --name web81 -p 81:80 -v /var/www/web81/www:/www -v /var/www/web81/config:/etc/nginx/http.d -v /var/www/web81/log:/var/log/nginx  nginx-server start &
+podman run -d --name web8001 -p 8001:80 -v /var/www/web81/www:/www -v /var/www/web81/config:/etc/nginx/http.d -v /var/www/web81/log:/var/log/nginx  nginx-plus
 ```
 
 ### 补充：关于宿主机目录结构
 
-注意: nginx-server的每个web服务都应具有如下目录结构：
+注意: nginx-plus的每个web服务都应具有如下目录结构：
 
 ```
 /var/www/webXXX 	虚拟主机根目录
